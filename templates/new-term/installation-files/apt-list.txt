@@ -7,4 +7,3 @@ zsh
 fzf
 bat
 screen
-eza

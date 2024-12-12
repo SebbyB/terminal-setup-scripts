@@ -20,7 +20,7 @@
 # -------------------------------------------------------------------------------
 
 # Define variables
-REPO_URL="https://github.com/SebbyB/.zshrc"
+REPO_URL="git@github.com:SebbyB/.zshrc.git"
 CONFIG_PATH="$HOME/.zshrc"
 BACKUP_DIR="$HOME/.zshrc-backup"
 CLEANUP=${1:-false} # Default to false, pass 'true' as the first argument to enable cleanup
@@ -28,6 +28,8 @@ CLEANUP=${1:-false} # Default to false, pass 'true' as the first argument to ena
 #Get the directory of the script
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 LIST_DIR="$(dirname "$SCRIPT_DIR")/files"
+
+bash "$Script_DIR/curl-oh-my-zsh.sh"
 
 # Backup existing .zshrc
 if [ -f "$CONFIG_PATH" ]; then
@@ -92,7 +94,7 @@ if [[ ! -f "$GIT_LIST" ]]; then
     exit 1
 fi
 
-#Install the plugins
+#Install the Themes
 if [ -z "$GIT_LIST" ]; then
     echo "$GIT_LIST is empty. Skipping execution."
 else
@@ -100,6 +102,7 @@ else
     bash "$GIT_INSTALL_SCRIPT" "$GIT_LIST" "$PLUGINS"
 fi
 
+bash "$Script_DIR/configure-p10k.sh"
 
 
 # Cleanup 
