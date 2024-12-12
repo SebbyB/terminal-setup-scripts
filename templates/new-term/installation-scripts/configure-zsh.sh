@@ -39,6 +39,11 @@ if [ -f "$CONFIG_PATH" ]; then
 fi
 
 # Clone the repository
+if [ -d "$BACKUP_DIR/repo-temp" ]; then
+  echo "Removing existing temporary repository directory..."
+  rm -rf "$BACKUP_DIR/repo-temp"
+fi
+
 echo "Cloning repository..."
 git clone "$REPO_URL" "$BACKUP_DIR/repo-temp"
 
