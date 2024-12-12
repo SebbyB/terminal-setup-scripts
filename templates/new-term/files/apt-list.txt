@@ -1,0 +1,10 @@
+curl
+wget
+git
+neovim
+htop
+zsh
+fzf
+bat
+screen
+eza

@@ -67,9 +67,12 @@ if [[ ! -f "$APT_LIST" ]]; then
     exit 1
 fi
 
-#Install apt packages.
-echo "Installing APT Packages"
-bash "$APT_INSTALL_SCRIPT" "$APT_LIST"
+if [ -z "$APT_LIST" ]; then
+    echo "$APT_LIST is empty. Skipping execution."
+else
+    echo "Installing APT Packages."
+    bash "$APT_INSTALL_SCRIPT" "$APT_LIST"
+fi
 
 
 ############################################################
@@ -93,9 +96,12 @@ if [[ ! -f "$CURL_LIST" ]]; then
     exit 1
 fi
 
-#Install Curl packages.
-echo "Installing Curl Packages"
-bash "$CURL_INSTALL_SCRIPT" "$CURL_LIST"
+if [ -z "$CURL_LIST" ]; then
+    echo "$CURL_LIST is empty. Skipping execution."
+else
+    echo "Installing Curl Packages."
+    bash "$CURL_INSTALL_SCRIPT" "$CURL_LIST"
+fi
 
 
 ############################################################
@@ -119,9 +125,12 @@ if [[ ! -f "$GIT_LIST" ]]; then
     exit 1
 fi
 
-#Install Git packages.
-echo "Installing Git Packages."
-bash "$GIT_INSTALL_SCRIPT" "$GIT_LIST" "$REPOS"
+if [ -z "$GIT_LIST" ]; then
+    echo "GIT_LIST is empty. Skipping execution."
+else
+    echo "Installing Git Packages."
+    bash "$GIT_INSTALL_SCRIPT" "$GIT_LIST" "$PLUGINS"
+fi
 
 
 ############################################################
@@ -145,7 +154,10 @@ if [[ ! -f "$SCRIPT_LIST" ]]; then
     exit 1
 fi
 
-#Run Config Scripts.
-echo "Running Configuration Scripts."
-bash "$SCRIPT_SCRIPT" "$SCRIPT_LIST" 
+if [ -z "$SCRIPT_LIST" ]; then
+    echo "$SCRIPT_LIST is empty. Skipping execution."
+else
+    echo "Running Configuration Scripts."
+    bash "$SCRIPT_SCRIPT" "$SCRIPT_LIST"
+fi
 

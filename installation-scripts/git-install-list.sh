@@ -16,8 +16,8 @@
 #       You are solely responsible for bricking your install
 #       with a faulty list!!
 # Author:       Sebastian Barney
-# Created on:   2024-12-12
-# Updated on:   2024-12-12
+# Created on:   12-12-24
+# Updated on:   12-12-24
 # Version:      1.0
 # Usage:        ./git-install-list.sh <file_with_repositories> <install_path> [run_install_scripts (true|false)]"
 #
