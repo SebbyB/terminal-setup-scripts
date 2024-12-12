@@ -10,8 +10,8 @@
 #       You are solely responsible for bricking your install
 #       with a faulty list!!
 # Author:       Sebastian Barney
-# Created on:   2024-12-12
-# Updated on:   2024-12-12
+# Created on:   12-12-24
+# Updated on:   12-12-24
 # Version:      1.0
 # Usage:        ./script-config-list.sh <file_with_shell_script_paths>
 #
@@ -31,6 +31,10 @@ if [[ ! -f "$SCRIPTS_LIST" ]]; then
   echo "Error: File '$SCRIPTS_LIST' not found!"
   exit 1
 fi
+
+# Print the working directory for debugging
+echo "Current working directory: $(pwd)"
+echo "Processing scripts from: $SCRIPTS_LIST"
 
 # Loop through each script path in the file
 while IFS= read -r script_path; do
