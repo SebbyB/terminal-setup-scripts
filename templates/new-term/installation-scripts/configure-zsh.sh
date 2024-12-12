@@ -19,15 +19,25 @@
 #       bash "$THIS_SHELL_SCRIPT" "(true | false)"
 # -------------------------------------------------------------------------------
 
+echo "Configuring ZSH"
+
 # Define variables
 REPO_URL="git@github.com:SebbyB/.zshrc.git"
 CONFIG_PATH="$HOME/.zshrc"
 BACKUP_DIR="$HOME/.zshrc-backup"
 CLEANUP=${1:-false} # Default to false, pass 'true' as the first argument to enable cleanup
 
+echo "$REPO_URL"
+echo "$CONFIG_PATH"
+echo "$BACKUP_DIR"
+echo "$CLEANUP"
+
 #Get the directory of the script
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 LIST_DIR="$(dirname "$SCRIPT_DIR")/files"
+echo "$SCRIPT_DIR"
+echo "$LIST_DIR"
+
 
 bash "$Script_DIR/curl-oh-my-zsh.sh"
 
